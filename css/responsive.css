@@ -31,7 +31,7 @@
   }
 /*  skill  */
   #skill li:nth-child(7) p{
-  left: -140px !important;
+  left: calc(100% / 2 - 200px) !important;
   }
 /*  portfolio  */
   #portfolio ul.worklist{
@@ -115,7 +115,7 @@
     /*! left: 50% !important; */
   }
   #skill li:nth-child(7) p{
-  left: -160px !important;
+  left: calc(100% / 2 - 220px) !important;
   }
   #skill li:nth-child(3) p{
     left: -110px !important;
@@ -236,7 +236,7 @@
     left: -130px !important;
   }
   #skill li:nth-child(7) p{
-  left: calc(100% / 2 - 185px) !important;
+  left: calc(100% / 2 - 188px) !important;
   }
   #portfolio ul.worklist{
     width: 300px;

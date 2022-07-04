@@ -17,6 +17,8 @@ header h1 {
   text-transform: uppercase;
   font-size: 20px;
   transition: all 0.5s;
+  padding: 5px;
+  box-sizing: border-box;
 }
 header h1 a {
   color: #73161E;
@@ -24,7 +26,8 @@ header h1 a {
   letter-spacing: 2px;
 }
 header h1:hover{
-  scale: 1.1;
+  transform: scale(1.1);
+    -webkit-transform: scale(1.1);
 }
 header h1 a span{
   letter-spacing: 1px;
@@ -42,7 +45,8 @@ header ul.gnb li a {
   transition: all 0.5s;
 }
 header ul.gnb li a:hover{
-  scale: 1.5;
+  transform: scale(1.3);
+  -webkit-transform: scale(1.3);
 }
 header ul.gnb li a span{
   width: 4px;
