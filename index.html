@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARK JIHO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+
+    <!-- 구글폰트: notosanskr -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"> 
+    <!-- 구글폰트: Jua -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet"> 
+    <!-- 구글폰트 : 나눔명조 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <!-- 구글폰트 : Dancing Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
+    <!-- 구글아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- css -->
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link rel="stylesheet" href="css/header.css" type="text/css">
+    <link rel="stylesheet" href="css/title.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="css/footer.css" type="text/css">
+    <link rel="stylesheet" href="css/responsive.css" type="text/css">
+    <link rel="stylesheet" href="css/aside.css" type="text/css">
+    <!-- jquery -->
+    <script 
+    src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <!-- aos -->
+    <link href="css/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- slick -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/slick-arrow.css">
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(
+            function(){
+         //대메뉴 클릭 시 해당 페이지로 이동
+                var titleH= $("#title").height();
+                var aboutH= $("#about").height();
+                var skillH= $("#skill").height();
+                var portfolioH= $("#portfolio").height();
+
+                //title 클릭 시 해당 페이지로 이동
+                $("header ul.gnb li:nth-child(1) a").click(
+                    function(){
+                        $("html,body").animate({scrollTop:"0px"},1000);
+                        return false;
+                    }
+                );
+                //about 클릭 시 해당 페이지로 이동
+                $("header ul.gnb li:nth-child(2) a").click(
+                    function(){
+                        $("html,body").animate({scrollTop:$(window).height()},1000);
+                        return false;
+                    }
+                );
+                //skill 클릭 시 해당 페이지로 이동
+                $("header ul.gnb li:nth-child(3) a").click(
+                    function(){
+                        $("html,body").animate({scrollTop:$(window).height()*2},1000);
+                        return false;
+                    }
+                );
+                //portfolio 클릭 시 해당 페이지로 이동
+                $("header ul.gnb li:nth-child(4) a").click(
+                    function(){
+                        $("html,body").animate({scrollTop:titleH+aboutH+skillH},1000);
+                        return false;
+                    }
+                );
+                //contact 클릭 시 해당 페이지로 이동
+                $("header ul.gnb li:nth-child(5) a").click(
+                    function(){
+                        $("html,body").animate({scrollTop:titleH+aboutH+skillH+portfolioH},1000);
+                        return false;
+                    }
+                );
+                //포트폴리오 보기 클릭 시 해당 페이지로 이동
+                $("#about a").click(
+                    function(){
+                        $("html,body").animate({scrollTop:titleH+aboutH+skillH},1000);
+                        return false;
+                    }
+                );
+        // 스크롤 이벤트
+
+                $(window).scroll(function(){
+                    //타이틀 진입 시 대메뉴 색상 변경
+                    if($(window).scrollTop() <= titleH){
+                        $("header ul.gnb li:nth-child(1) a span").addClass("currentGnb");
+                        $("header ul.gnb li a span").not("header ul.gnb li:nth-child(1) a span").removeClass("currentGnb");
+                    }
+                    //어바웃 진입 시 대메뉴 색상 변경
+                    if($(window).scrollTop() >= titleH){
+                        $("header ul.gnb li:nth-child(2) a span").addClass("currentGnb"); 
+                        $("header ul.gnb li a span").not("header ul.gnb li:nth-child(2) a span").removeClass("currentGnb");
+                    }
+                    //스킬 진입시 대메뉴 색상 변경
+                    if($(window).scrollTop() >= titleH + aboutH){
+                        $("header ul.gnb li:nth-child(3) a span").addClass("currentGnb");
+                        $("header ul.gnb li a span").not("header ul.gnb li:nth-child(3) a span").removeClass("currentGnb");
+                    //스킬 진입시 위로가기 버튼 나타남
+                        $("a.top").fadeIn(500);
+                    }
+                    //포트폴리오 진입시 대메뉴 색상 변경
+                    if($(window).scrollTop() >= titleH + aboutH + skillH){
+                        $("header ul.gnb li:nth-child(4) a span").addClass("currentGnb");
+                        $("header ul.gnb li a span").not("header ul.gnb li:nth-child(4) a span").removeClass("currentGnb");
+                    }
+                    //컨택트 진입시 대메뉴 색상 변경
+                    if($(window).scrollTop() >= titleH + aboutH + skillH + portfolioH){
+                        $("header ul.gnb li:nth-child(5) a span").addClass("currentGnb");
+                        $("header ul.gnb li a span").not("header ul.gnb li:nth-child(5) a span").removeClass("currentGnb");
+                    }
+
+                    //타이핑 에니메이션 실행
+                    if($(window).scrollTop() >= titleH + aboutH + skillH + portfolioH / 5){
+                        $("#contact span").addClass("typing");
+                    }else{
+                        $("#contact span").removeClass("typing");
+                    }
+
+                     //위로가기 버튼 사라짐
+                    if($(window).scrollTop()<=titleH+aboutH){
+                        $("a.top").fadeOut(500);
+                    }
+                });
+        //위로가기 버튼 클릭 시 페이지의 가장 상단으로 이동
+                $("a.top").hide();
+                $("a.top").click(
+                    function(){
+                        $("html,body").animate({scrollTop:"0px"},1000);
+                        return false;
+                    }
+                );
+            }
+        );
+    </script>
+<!-- AOS -->
+    <script>
+        $(function(){
+            AOS.init();
+        });
+    </script>
+<!-- slick slide -->
+    <script>
+        $(function(){
+            $('.worklist').slick({
+                dots: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                adaptiveHeight: true,
+                arrows:true,
+                responsive: [
+                    {
+                    breakpoint: 1025,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        infinite: true,
+                        dots: true
+                    }
+                    },
+                    {
+                    breakpoint: 769,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                    }
+                ]
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="wrap">
+            <h1 class=""><a href="">jiho<span class="block">park</span></a></h1>
+            <ul class="gnb">
+                <li><a href=""><span>home</span> </a></li>
+                <li><a href=""><span>about</span></a></li>                
+                <li><a href=""><span>skill</span></a></li>                
+                <li><a href=""><span>portfolio</span></a></li>
+                <li><a href=""><span>contact</span></a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- title -->
+    <div id="title">
+        <div class="wrap">
+            <h1 class="h1">
+                <span class="hello1" data-aos="zoom-out" data-aos-duration="1300">안녕하세요</span>
+                <span class="hello2" data-aos="fade-right" data-aos-duration="1300" data-aos-delay="500">성장하는 웹 퍼블리셔</span>
+                <span class="hello3" data-aos="fade-left" data-aos-duration="1300" data-aos-delay="900"><strong>박지호</strong>입니다</span>
+            </h1>
+            <span class="scrollDown">scroll down</span>
+        </div>
+    </div>
+    <!-- main -->
+    <main>
+        <!-- about -->
+        <section id="about">
+            <div class="wrap">
+                <h2 class="h2" data-aos="fade-down" data-aos-duration="1300"><strong>만나서</strong>반갑습니다</h2>
+                <article>
+                    <div class="about_left">
+                        <h3>신입 웹 퍼블리셔 <strong>박지호</strong>입니다!</h3><br>
+                        <p class="p" data-aos="fade-up" data-aos-duration="1300" data-aos-delay="500">
+                            컴퓨터로 자주 쓰는 루틴을 매크로로 만들 수 있지 않을까 싶어
+                            구글에 검색하였던 것이 코딩 입문의 계기였습니다.<br><br> 
+                            프로그래밍에 대해 전혀 몰랐기 때문에 문법 하나 하나가
+                            어떤 의미인지 검색하고 인터넷 강의를 찾아가며 만들었는데,
+                            이 과정이 굉장히 흥미롭게 느껴졌습니다.<br><br>
+                            업계에 관심이 생겨 어떤 분야가 있는지 찾아보게 되었고,
+                            웹 퍼블리싱에 매력을 느껴 6개월간 학원을 다니며 관련 교육과정을 거쳤습니다<br><br>
+                            탄탄한 마크업을 기반으로 사용자의 기억에 남는 퍼블리싱을 하고싶습니다
+                            나무처럼 차근차근 성장하여 단단히 뿌리를 내리는 웹 퍼블리셔를 꿈꿉니다
+                        </p>
+                    </div>
+                    <div class="about_right">
+                        <img src="img/flower.jpg" data-aos="fade-up" data-aos-duration="1300" data-aos-delay="800" alt="꽃 이미지">
+                    </div>
+                </article>
+                <a href="" class="resume" data-aos="fade-up" data-aos-duration="1300" data-aos-delay="900">포트폴리오 보기</a>
+            </div>
+        </section>
+        <!-- skill -->
+        <section id="skill">
+            <div class="wrap">
+                <h2 class="h2" data-aos="fade-down" data-aos-duration="1300"><strong>이런 것</strong>들을 합니다</h2>
+                <ul class="skill">
+                    <li data-aos="zoom-in" data-aos-duration="1300">
+                        <h3>HTML5</h3>
+                        <p class="p" data-aos="fade-right" data-aos-duration="1300">
+                            시맨틱 태그를 이용한 마크업으로<br>
+                            웹표준과 웹접근성을 준수합니다
+                        </p>
+                    </li>
+                    <li data-aos="zoom-in" data-aos-duration="1300" data-aos-delay="300">
+                        <h3>CSS3</h3>
+                        <p class="p" data-aos="fade-left" data-aos-duration="1300">
+                            웹 호환성을 고려한 크로스 브라우징<br>
+                            코딩으로 반응형 웹사이트를 구현합니다
+                        </p>
+                    </li>
+                    <li data-aos="zoom-in" data-aos-duration="1300" data-aos-delay="400">
+                        <span>JS</span>
+                        <h3>JavaScript</h3>
+                        <p class="p" data-aos="fade-right" data-aos-duration="1300">
+                            기본적인 자바스크립트에 대한 이해도를 <br>
+                            바탕으로 제이쿼리와 병행하여 사용합니다
+                        </p>
+                    </li>
+                    <li data-aos="zoom-in" data-aos-duration="1300" data-aos-delay="500">
+                        <h3>jQuery</h3>
+                        <p class="p" data-aos="fade-right" data-aos-duration="1300">
+                            애니메이션 효과 및 대화형처리에 제이쿼리를<br>
+                            적용하여 짧은 코드로 동적기능을 구현합니다
+                        </p>
+                    </li>
+                    <li data-aos="zoom-in" data-aos-duration="1300" data-aos-delay="600">
+                        B
+                        <h3>Bootstrap</h3>
+                        <p class="p" data-aos="fade-left" data-aos-duration="1300">
+                            필요 시 부트스트랩을 사용하여 <br>
+                            간단하고 신속한 작업도 가능합니다
+                        </p>
+                    </li>
+                    <li data-aos="zoom-in" data-aos-duration="1300" data-aos-delay="700">
+                        <h3>React</h3>
+                        <p class="p" data-aos="fade-right" data-aos-duration="1300">
+                            리액트에 대한 기본적인 이해가<br>
+                            있으며 계속해서 공부중입니다
+                        </p>
+                    </li>
+                    <li data-aos="zoom-in" data-aos-duration="1300" data-aos-delay="800">
+                        slick
+                        <h3>Sass & <strong>Slick</strong></h3>
+                        <p class="p" data-aos="fade-down" data-aos-duration="1400">
+                            <span>Sass</span>나 <span>Slick</span>과 같은 다양한 라이브러리와<br>
+                            프레임워크를 활용하여 신속하게 작업합니다
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- portfolio -->
+        <section id="portfolio">
+            <div class="wrap">
+                <h2 class="h2" data-aos="fade-down" data-aos-duration="1300">
+                    그간의 <strong>작업물</strong>입니다
+                </h2>
+                <ul class="worklist" data-aos="fade-up" data-aos-duration="1300" data-aos-delay="500">
+                    <!-- <li>
+                        <div class="list">
+                            <img src="img/pf8.png" alt="">
+                            <div class="manual">
+                                <h3 class="h3">국립중앙박물관</h3>
+                                <p>
+                                    <span>
+                                        인덱스페이지 작업<br><br>
+                                    </span>
+                                        #반응형웹페이지<br>
+                                        #제이쿼리<br>
+                                </p>
+                                <a href="" target="_blank">자세히보기</a>
+                            </div>
+                        </div>
+                    </li> -->
+                    <li>
+                        <div class="list">
+                            <img src="img/pf7.png" alt="포트폴리오 윤현몰 사이트 이미지">
+                            <div class="manual">
+                                <h3 class="h3">윤현몰</h3>
+                                <p>
+                                    <span>
+                                        인덱스페이지 작업물
+                                    </span>
+                                    #인터벌 애니메이션<br>
+                                    #부트스트랩<br>
+                                    #반응형웹페이지<br>
+                                    #제이쿼리
+                                </p>
+                                <a href="https://jihoparrk.github.io/pf7/" target="_blank">자세히보기</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list">
+                            <img src="img/pf6.png" alt="포트폴리오 브랜드엑스 사이트 이미지">
+                            <div class="manual">
+                                <h3 class="h3">브랜드엑스</h3>
+                                <p>
+                                    <span>
+                                        인덱스페이지 작업물
+                                    </span>
+                                        #팝업창<br>
+                                        #라이트 / 다크모드<br>
+                                        #반응형웹페이지<br>
+                                        #제이쿼리
+                                </p>
+                                <a href="https://jihoparrk.github.io/pf6/" target="_blank">자세히보기</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list">
+                            <img src="img/pf5.png" alt="포트폴리오 삼성전자 사이트 이미지">
+                            <div class="manual">
+                                <h3 class="h3">삼성전자</h3>
+                                <p>
+                                    <span>
+                                        인덱스페이지,경영철학,<br>
+                                        연혁페이지 작업물
+                                    </span>
+                                    #위로가기 / CS버튼<br>
+                                    #반응형웹페이지<br>
+                                    #제이쿼리
+                                </p>
+                                <a href="https://jihoparrk.github.io/pf5/" target="_blank">자세히보기</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list">
+                            <img src="img/pf4.png" alt="포트폴리오 투썸플레이스 사이트 이미지">
+                            <div class="manual">
+                                <h3 class="h3">투썸플레이스</h3>
+                                <p>
+                                    <span>
+                                        인덱스페이지 작업물
+                                    </span>
+                                        #반응형웹페이지<br>
+                                        #제이쿼리
+                                </p>
+                                <a href="https://jihoparrk.github.io/pf4/" target="_blank">자세히보기</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list">
+                            <img src="img/pf3.png" alt="포트폴리오 개인홈페이지 사이트 이미지">
+                            <div class="manual">
+                                <h3 class="h3">개인홈페이지</h3>
+                                <p>
+                                    <span>
+                                        인덱스페이지 작업물
+                                    </span>
+                                        #기획<br>
+                                        #디자인<br>
+                                        #스크롤이벤트<br>
+                                        #반응형웹페이지
+                                </p>
+                                <a href="http://jihopark.woobi.co.kr/" target="_blank">자세히보기</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list">
+                            <img src="img/pf2.png" alt="포트폴리오 한진칼 리뉴얼 사이트 이미지">
+                            <div class="manual">
+                                <h3 class="h3">한진칼리뉴얼</h3>
+                                <p>
+                                    <span>
+                                        한진칼 인덱스 페이지 <br>
+                                        리뉴얼 작업물
+                                    </span>
+                                    #디자인<br>
+                                    #반응형웹페이지<br>
+                                    #초기작품
+                                </p>
+                                <a href="https://jihoparrk.github.io/pf2/" target="_blank">자세히보기</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="list">
+                            <img src="img/pf1.png" alt="포트폴리오 한진칼 사이트 이미지">
+                            <div class="manual">
+                                <h3 class="h3">한진칼</h3>
+                                <p>
+                                    <span>
+                                        인덱스페이지 작업물
+                                    </span>
+                                    #반응형웹페이지<br>
+                                    #초기작품
+                                </p>
+                                <a href="https://jihoparrk.github.io/pf1/" target="_blank">자세히보기</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- contact -->
+        <section id="contact">
+            <div class="wrap">
+                <span>책임감 있고 기본을 지키는 퍼블리셔를 찾고 계신가요?</span>
+                <h2 class="h2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2000">언제든지 <strong>연락</strong>주세요</h2>
+                <ul>
+                    <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2300"><a href="tel:01035183893">82)10-3518-3893</a></li>
+                    <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2400"><a href="mailto:jihoparrk@gmail.com">jihoparrk@gmail.com</a></li>
+                    <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2500"><a href="https://github.com/jihoparrk" target="blank">Github</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <!-- footer -->
+    <footer>
+        <h1>Jiho Park's Portfolio</h1>
+        <p>ⓒ 2022 Jiho Park all rights reserved.</p>
+        <a href="" class="top">위로가기</a>
+    </footer>  
+    <!-- <aside>
+        <h2>사이드메뉴</h2>
+        <h3>연락하기</h3>
+        <ul>
+            <li>카카오톡</li>
+            <li>전화걸기</li>
+            <li>이메일보내기</li>
+        </ul>
+    </aside> -->
+
+</body>
+</html>
